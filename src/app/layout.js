@@ -20,7 +20,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <header style={{ fontSize: "2rem", fontWeight: "bold", color: "red", background: "lightgray" }}>My Project</header>
         {children}
+        <footer style={{ fontSize: "1rem", textAlign: "center", color: "blue", padding: "1rem", background: "lightgray" }}>
+          © 2023 My Project
+        </footer>
       </body>
     </html>
   );
