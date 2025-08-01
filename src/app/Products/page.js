@@ -1,24 +1,25 @@
 // app/products/page.js
-
 import Link from 'next/link';
 
-export default function ProductsPage() {
+export const revalidate = 60; // Revalidate data every 60 seconds
+
+export default async function ProductsPage() {
+  const res = await fetch('https://dummyjson.com/products', {
+    next: { revalidate: 60 }, // Enables caching with revalidation
+  });
+  const data = await res.json();
+
   return (
     <div>
-      <h1>Products Page</h1>
-      <p>This is just a placeholder.</p>
-
-      <ul>
-        <li><Link href="/Products/1">Product 1</Link></li>
-        <li><Link href="/Products/2">Product 2</Link></li>
-        <li><Link href="/Products/3">Product 3</Link></li>
-        <li><Link href="/Products/4">Product 4</Link></li>
-        <li><Link href="/Products/5">Product 5</Link></li>
-        <li><Link href="/Products/6">Product 6</Link></li>
-        <li><Link href="/Products/7">Product 7</Link></li>
-        <li><Link href="/Products/8">Product 8</Link></li>
-        <li><Link href="/Products/9">Product 9</Link></li>
-        <li><Link href="/Products/10">Product 10</Link></li>
+      <h1>Products</h1>
+      <ul style={{ paddingLeft: '1rem' }}>
+        {data.products.map(product => (
+          <li key={product.id}>
+            <Link href={`/Products/${product.id}`}>
+              {product.title}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
