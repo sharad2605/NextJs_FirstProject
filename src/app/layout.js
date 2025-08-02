@@ -21,22 +21,67 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <header style={{
-          fontSize: '1.5rem',
-          fontWeight: 'bold',
-          color: 'red',
-          background: 'lightgray',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '1rem'
-        }}>
-          <div>My Project</div>
-          <nav style={{ fontSize: '1rem', display: 'flex', gap: '1rem' }}>
-            <Link href="/">Home</Link>
-            <Link href="/Products">Products</Link>
-          </nav>
-        </header>
+       <header
+  style={{
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '1rem 2rem',
+    background: '#e2096375',
+    borderBottom: '1px solid #60b010ff',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+    position: 'sticky',
+    top: 0,
+    zIndex: 100,
+  }}
+>
+  {/* Logo & Title */}
+  <Link
+    href="/"
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      textDecoration: 'none',
+      color: '#9faf21',
+      fontWeight: 'bold',
+      fontSize: '1.5rem',
+      gap: '0.5rem',
+    }}
+  >
+    <img
+      src="/logo.jpg"
+      alt="Logo"
+      style={{ height: '40px', width: 'auto', objectFit: 'contain' }}
+    />
+    <span style={{ fontFamily: 'sans-serif' }}>My Project</span>
+  </Link>
+
+  {/* Navigation */}
+  <nav style={{ display: 'flex', gap: '1.5rem' }}>
+    <Link
+      href="/"
+      style={{
+        textDecoration: 'none',
+        color: '#fff',
+        fontSize: '1rem',
+        fontWeight: 500,
+      }}
+    >
+      Home
+    </Link>
+    <Link
+      href="/products"
+      style={{
+        textDecoration: 'none',
+        color: '#fff',
+        fontSize: '1rem',
+        fontWeight: 500,
+      }}
+    >
+      Products
+    </Link>
+  </nav>
+</header>
 
         {children}
 
