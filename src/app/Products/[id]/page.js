@@ -24,9 +24,21 @@ export default async function ProductDetailsPage({ params }) {
       maxWidth: '600px'
     }}>
       <h2>{product.title}</h2>
-      <img
+      {/* <img
         src={product.thumbnail}
         alt={product.title}
+        style={{
+          width: '100%',
+          maxHeight: '300px',
+          objectFit: 'cover',
+          borderRadius: '6px'
+        }}
+      /> */}
+
+       {/* Static image from public/ directory */}
+      <img
+        src="/product-placeholder.jpg"  // 👈 this is the static file
+        alt="Static Product Image"
         style={{
           width: '100%',
           maxHeight: '300px',
